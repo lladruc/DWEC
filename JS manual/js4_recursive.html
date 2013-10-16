@@ -1,0 +1,544 @@
+<html>
+<head>
+	<title>MOlsina - JS</title>
+</head>
+<body>
+<style media="screen" type="text/css">
+*{
+	font-family: courier;
+}
+.bloc{
+	padding:10px;
+	display: inherit;
+	border:1px;
+	border-color:black;
+	overflow: auto;
+	
+
+}
+.menu{
+	display: inline-table;
+	padding:15px;
+	text-align: center;
+}
+.title{
+	font-size: 2em;
+
+}
+pre{
+  border:1px solid #A2A2A2;
+  background-color:#F1F1F1;
+  padding:10px;
+  margin:5px;
+  color:#0150c7;
+  overflow:auto;
+  display:inherit;
+  float:left;
+}
+
+.resultat{
+	float:left;
+	padding-left:20px;
+
+}
+.return{
+	background-color:bbb;
+	border-radius:6px;
+	font-size:20px;
+	text-decoration: none;
+	position:fixed !important; 
+	right:25px; 
+	bottom:10px; 
+	z-index:10 !important;
+}
+</style>
+
+	<div style="border:2;padding:10px"><!-- div full -->
+	<div class="bloc">
+		<p style="padding-left:7%;">
+		Centre d'estudis politècnics DAW2A <!-- Dru --><br />
+		DWEC - Jose Antonio Domingo <br/></p>
+		<span style="text-align:center;display:block">MENU</span>
+		<hr/>
+		<menu>
+		<span class="menu"><a href="#1">Variables</a></span>
+		<span class="menu"><a href="#2">Data Type</a></span>
+		<span class="menu"><a href="#3">Objects</a></span>
+		<span class="menu"><a href="#4">Functions</a></span>
+		<span class="menu"><a href="#5">Operators</a></span>
+		<span class="menu"><a href="#6">Comparators</a></span>
+		<span class="menu"><a href="#7">Conditions</a></span>
+		<span class="menu"><a href="#8">Switch</a></span>
+		<span class="menu"><a href="#9">Loop For</a></span>
+		<span class="menu"><a href="#10">Loop While</a></span>
+		</menu>
+		<hr />
+	</div>
+		<div class="bloc">
+			<span class="title"><a id="1">Variables</a></span>
+			<div class="code">
+				<pre>
+&lt;html&gt;
+&lt;body&gt;
+&lt;script&gt;
+	var x=5;
+	var a = "ho";
+	var b = "la";
+	var c = x*b;
+	document.write(x + "&lt;br&gt;");
+	document.write(z + "&lt;br&gt;");
+	document.write(a+b + "&lt;br&gt;");
+	document.write(c + "&lt;br&gt;");
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;	</pre>
+			</div>
+			<div class="resultat">
+				<p>
+				Resultat: <br />
+				5<br />
+				11<br />
+				hola<br />
+				NaN<br />
+				</p>
+			</div>
+		</div>
+<hr />
+		<div class="bloc">
+			<span class="title"><a id="2">Data Type</a></span>
+			<div class="code">
+				<pre>
+&lt;html&gt;
+&lt;body&gt;
+&lt;script&gt;
+	var pentium={
+	model : 2,
+	year  : "1989-01-01",
+	work  :  false
+	};
+	var celeron = new Object();
+	celeron.model = 2;
+	celeron.year = "2001-01-01";
+	celeron.work = true;
+	var modelo = Date.parse(celeron.model);
+	document.write("Pentium -&gt; Modelo: " +
+	 pentium['model'] + "&lt;br&gt;");
+	document.write("Celeron -&gt; Modelo: " + modelo);
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;	</pre>
+			</div>
+			<div class="resultat">
+				<p>
+				Resultat: <br />
+				Pentium -> Modelo: 2<br/>
+				Celeron -> Modelo: 980982000000
+
+				</p>
+			</div>
+		</div>
+<hr/>
+		<div class="bloc">
+			<span class="title"><a id="3">Objects</a></span>
+			<div class="code">
+				<pre>
+&lt;html&gt;
+&lt;body&gt;
+&lt;script&gt;
+var llista = new Array();
+llista[0] = "a";
+llista[1] = "b";
+llista[2] = 3.57;
+var slots = llista.length;
+var up = llista[1].toUpperCase();
+var flotante = parseInt(llista[2]);
+document.write("Objetos : " + slots);
+document.write("&lt;br&gt;Objeto 0: " + llista[0]);
+document.write("&lt;br&gt;Objeto 1: " + up);
+document.write("&lt;br&gt;Objeto 2: " + flotante);
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;	</pre>
+			</div>
+			<div class="resultat">
+				<p>
+					Resultat: <br />
+					Objetos : 3<br />
+					Objeto 0: a<br />
+					Objeto 1: B<br />
+					Objeto 2: 3	</p>
+			</div>
+		</div>
+<hr />
+<div class="bloc">
+			<span class="title"><a id="4">Functions</a></span>
+			<div class="code">
+				<pre>
+&lt;html&gt;
+&lt;body&gt;
+&lt;script&gt;
+function suma(a,b){
+return a+b ;
+}
+function resta(a,b){
+//return a+(b*-1);
+//return a+(-b);
+return a-b;
+}
+function multi(b,p){
+document.getElementById("multi").value = b*p;
+}
+function divide(b,d){
+if(d==0){
+document.getElementById("divide").value = 0;
+alert("Error: Dividiendo entre 0");
+}else{
+document.getElementById("divide").value = b/d;
+}
+}
+
+function resultado(){
+
+ a =parseFloat(document.getElementById("a").value); 
+ b =parseFloat(document.getElementById("b").value);
+document.getElementById("suma").value = suma(a,b);
+document.getElementById("resta").value = resta(a,b);
+multi(a,b);
+divide(a,b);
+}
+&lt;/script&gt;
+Escribe la base: &lt;input type="number" id="a"/&gt;
+&lt;br /&gt;
+Escribe la potencia/dividendo: &lt;input type="number" id="b"/&gt;
+&lt;br /&gt;
+&lt;button type="button" onClick=resultado()&gt;
+	Potenciame!&lt;/button&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+Suma: &lt;input type="text" id="suma" text = "." / style="border:no';" /&gt;
+&lt;br /&gt;
+Resta: &lt;input type="text" id="resta" text = "." / style="border:no';" /&gt;
+&lt;br /&gt;
+Multiplica: &lt;input type="text" id="multi" text = "." / style="border:no';" /&gt;
+&lt;br /&gt;
+Divide: &lt;input type="text" id="divide" text = "." / style="border:no';" /&gt;
+&lt;/body&gt;
+&lt;/html&gt;	</pre>
+			</div>
+			<div class="resultat">
+				<p>
+					Resultat:<br>
+<script>
+function suma(a,b){
+return a+b ;
+}
+function resta(a,b){
+//return a+(b*-1);
+//return a+(-b);
+return a-b;
+}
+function multi(b,p){
+document.getElementById("multi").value = b*p;
+}
+function divide(b,d){
+if(d==0){
+document.getElementById("divide").value = 0;
+alert("Error: Dividiendo entre 0");
+}else{
+document.getElementById("divide").value = b/d;
+}
+}
+
+function resultado(){
+
+ a =parseFloat(document.getElementById("a").value); 
+ b =parseFloat(document.getElementById("b").value);
+document.getElementById("suma").value = suma(a,b);
+document.getElementById("resta").value = resta(a,b);
+multi(a,b);
+divide(a,b);
+}
+</script>
+Escribe la base: <input type="number" id="a"/>
+<br />
+Escribe la potencia/dividendo: <input type="number" id="b"/>
+<br />
+<button type="button" onClick=resultado()>
+	Potenciame!</button>
+<br />
+<br />
+Suma: <input type="text" id="suma" text = "." / style="border:no';" />
+<br />
+Resta: <input type="text" id="resta" text = "." / style="border:no';" />
+<br />
+Multiplica: <input type="text" id="multi" text = "." / style="border:no';" />
+<br />
+Divide: <input type="text" id="divide" text = "." / style="border:no';" />
+				</p>
+			</div>
+		</div>
+<hr />
+<div class="bloc">
+			<span class="title"><a id="5">Operators</a></span>
+			<div class="code">
+				<pre>
+&lt;html&gt;
+&lt;body&gt;
+&lt;script&gt;
+
+var myNums = [1,2,3,4,5,6,7,8,9];
+var autosuma= 0;
+var autoresta = 0;
+var i=0;
+
+for (;i&lt;myNums.length;i++){
+autosuma=autosuma+myNums[i];
+autoresta=autoresta- myNums[i];
+}
+
+document.write("Autosuma: " + autosuma );
+document.write("&lt;br&gt;Autoresta: " + autoresta);
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;		</pre>
+			</div>
+			<div class="resultat">
+				<p>
+					Resultat:<br/>
+					Autosuma: 45<br/>
+					Autoresta: -45<br/>
+				</p>
+			</div>
+		</div>
+<hr />
+<div class="bloc">
+			<span class="title"><a id="6">Comparators</a></span>
+			<div class="code">
+				<pre>
+&lt;html&gt;
+&lt;body&gt;
+&lt;script&gt;
+var age = 19;
+if(!age){
+ document.write("introduce una edad");
+}else{
+ if(age &lt; 18){
+  document.write("ñeee ! eres menor de edad");
+ }else if(age ==18){
+  document.write("justitooo");
+ }else{
+  document.write("ok, puedes pasar");
+ }
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;	</pre>
+			</div>
+			<div class="resultat">
+				<p>
+					Resultat:<br />
+					ok, puedes pasar.
+				</p>
+			</div>
+		</div>
+<hr />
+<div class="bloc">
+			<span class="title"><a id="7">Conditions</a></span>
+			<div class="code">
+				<pre>
+&lt;html&gt;
+&lt;body&gt;
+&lt;script&gt;
+var cantidad = 117;
+if(!cantidad){
+document.write("No hay cantidades!");
+}else{
+document.write("Has declarado la variable: " + cantidad);
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+				</pre>
+			</div>
+			<div class="resultat">
+				<p>
+					Resultat:<br/>
+					117
+				</p>
+			</div>
+		</div>
+<hr />
+<div class="bloc">
+			<span class="title"><a id="8">Switch</a></span>
+			<div class="code">
+				<pre>
+&lt;html&gt;
+&lt;html&gt;&lt;body&gt;&lt;script&gt;
+var d = new Date();
+var hora = d.getHours();
+var minutos = d.getMinutes();
+document.write("Son las -&gt; "+hora+":"+minutos+"&lt;br&gt;&lt;br&gt;");
+switch(hora){
+case 8 :
+document.write("buenos dias");
+break;
+case 13:
+document.write("hora de comer");
+break;
+case 16:
+document.write("hora de la siesta");
+case 21:
+document.write("buenas noches");
+break;
+default:
+document.write("&lt;br&gt;sin eventos..");
+break;
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;	</pre>
+			</div>
+			<div class="resultat">
+				<p>
+					Resultat:
+<script>
+var d = new Date();
+var hora = d.getHours();
+var minutos = d.getMinutes();
+if (minutos<10){minutos ="0"+minutos;}
+document.write("Son las -> "+hora+":"+minutos+"<br><br>");
+switch(hora){
+	case 8 :
+	document.write("buenos dias");
+	break;
+	case 13:
+	document.write("hora de comer");
+	break;
+	case 16:
+	document.write("hora de la siesta");
+	case 21:
+	document.write("buenas noches");
+	break;
+	default:
+	document.write("<br>sin eventos..");
+	break;
+}
+</script>
+				</p>
+			</div>
+		</div>
+<hr />
+<div class="bloc">
+			<span class="title"><a id="9">Loop For</a></span>
+			<div class="code">
+				<pre>
+&lt;html&gt;
+&lt;body&gt;
+&lt;p&gt;Introdueixi un número: &lt;input type="number" id="num22"/ &gt;&lt;/p&gt;
+&lt;button onclick="isCapICua()"&gt;Es cap i cua?&lt;/button&gt;
+&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+function isCapICua()
+{
+var num = document.getElementById("num22").value;
+var result="Si, es cap i cua";
+if(num.length&lt;2{
+	result="El num. es menor a 10";
+}else{
+ for (var i=0,j=num.length-1;i&lt;j;i++,j--)
+   {
+    if(num.charAt(i) != num.charAt(j)){
+     result="No, no es cap i cua";
+     break;
+    }
+   }
+ }
+  document.getElementById("respostaCapICua").value = (result);
+}
+&lt;/script&gt;
+Resultat: &lt;input type="label" id="respostaCapICua" value=""/&gt;
+&lt;/body&gt;
+&lt;/html&gt;	</pre>
+			</div>
+			<div class="resultat">
+				<p>
+					Resultat:
+
+<p>Introdueixi un número: <input type="number" id="num22"/ ></p>
+<button onclick="isCapICua()">Es cap i cua?</button>
+<p id="demo"></p>
+<script>
+function isCapICua()
+{
+var num = document.getElementById("num22").value;
+var result="Si, es cap i cua";
+if(num.length<2){
+	result="El num. es menor a 10";
+}else{
+	for (var i=0,j=num.length-1;i<j;i++,j--)
+	  {
+	  	if(num.charAt(i) != num.charAt(j)){
+	  		result="No, no es cap i cua";
+	   		break;
+	   	}
+	  }
+	}
+	   document.getElementById("respostaCapICua").value = (result);
+
+}
+</script>
+Resultat: <input type="label" id="respostaCapICua" value=""/>
+
+				</p>
+			</div>
+		</div>
+<hr />
+<div class="bloc">
+			<span class="title"><a id="10">Loop While</a></span>
+			<div class="code">
+				<pre>
+&lt;html&gt;
+&lt;body&gt;
+&lt;script&gt;
+ &lt;input type="number" id="num" /&gt;
+ &lt;input type="button" onClick="factorizame()" value="factorizame" /&gt;&lt;br /&gt;
+ Resultado: &lt;input type="label" id="resultado" /&gt;
+ &lt;script type="text/javascript"&gt;
+ function factorizame(){
+ var num = document.getElementById("num").value;
+ var i=factorial=1;
+ while(i&lt;num){
+  factorial=factorial*(i+1);
+  i++;
+ }
+ document.getElementById("resultado").value = factorial;
+ }
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;	</pre>
+			</div>
+			<div class="resultat">
+				<p>
+					<input type="number" id="num" /><input type="button" onClick="factorizame()" value="factorizame" /><br />
+Resultado: <input type="label" id="resultado" />
+<script type="text/javascript">
+function factorizame(){
+var num = document.getElementById("num").value;
+var i=factorial=1;
+while(i<num){
+	factorial=factorial*(i+1);
+	i++;
+}
+document.getElementById("resultado").value = factorial;
+}
+				</p>
+			</div>
+		</div>
+<hr />
+<a class="return" href='#'/><p>&nbsp;&nbsp;Up!&nbsp;&nbsp;</p></a>
+
+	</div>
+</body>
+</html>
